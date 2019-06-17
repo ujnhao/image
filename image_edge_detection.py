@@ -38,7 +38,7 @@ def func_image(path):
                     matris_sobel[i][j][m] = int(value)
 
     image = Image.fromarray(matris_sobel, 'RGB')
-    image.save("target.jpg")
+    image.save(path + "_target.jpg")
     image.show()
 
 if __name__ == "__main__":
