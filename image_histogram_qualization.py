@@ -12,12 +12,12 @@ def func_img(path):
     img_gray = img.convert('L')#将图像转为灰度，减少计算的维度
     img_gray_array = np.array(img_gray)
 
-    img_gray.show('img_gray')
+    #img_gray.show('img_gray')
     w, h = img_gray_array.shape[0], img_gray_array.shape[1]
 
-    p1 = plt.hist(img_gray_array.reshape(img_gray_array.size, 1))
+    #p1 = plt.hist(img_gray_array.reshape(img_gray_array.size, 1))
  
-    plt.show()
+    #plt.show()
  
     #创建直方图
     n = np.zeros((256),dtype = np.float)
@@ -44,10 +44,11 @@ def func_img(path):
     for x in range(0,w):
         for y in range(0,h):
             des[x][y] = 255*c[img_gray_array[x][y]]
-
-    p2 = plt.hist(des.reshape(des.size,1))
+    plt.figure()
+    plt.imshow(des, cmap='gray')
     plt.show()
+    #p2 = plt.hist(des.reshape(des.size,1))
 
 if __name__ == "__main__":
-    if len(sys.agrv) == 2:
-        func_img(sys.agrv[1])
+    if len(sys.argv) == 2:
+        func_img(sys.argv[1])
